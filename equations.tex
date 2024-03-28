@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage{amsmath} % Required for mathematical features
+
+\begin{document}
+\maketitle
+
+\indent\indent\textbf{Observation Model:}
+\[
+y_{ijk} | s_i \sim \text{Poisson}(\lambda_{ijk}),
+\]
+
+\indent\indent\textbf{Half-Normal Detection Function:}
+\begin{equation}
+\lambda_{ijk} = \lambda_0 \times \exp\left(-\frac{\text{dist}(s_{i}, x_{j})^2}{2\sigma^2}\right),
+\end{equation}
+\begin{equation}
+\log(\lambda_0) = \alpha + \log(\text{operating days}),
+\end{equation}
+
+\begin{itemize}
+  \item $\lambda_{ijk}$: expected count of individual $i$ at camera trap $j$ on occasion $k$.
+  \item $\lambda_0$: expected number of individual with $s_{i}$ at trap $j$
+  \item $\sigma$: spatial scale parameter
+  \item $\log(\text{operating days})$: offset (number of operating days)
+  \item $\alpha$: constant
+\end{itemize}
+
+\end{document}
