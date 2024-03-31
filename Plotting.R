@@ -130,16 +130,16 @@ ggplot() +
               aes(x=day, y=daily_temperature_2m_mean, 
                   ymin=daily_temperature_2m_min, 
                   ymax=daily_temperature_2m_max),
-              fill="cyan", alpha = 0.25) +
+              fill="#7ad151", alpha = 0.25) +
   geom_line(data = weatherHistDat1, 
-            aes(x=day, y=daily_temperature_2m_mean), linewidth=1, color="blue") + 
+            aes(x=day, y=daily_temperature_2m_mean), linewidth=1, color="#7ad151") + 
   geom_ribbon(data = weatherHistDat2, 
               aes(x=day, y=daily_temperature_2m_mean, 
                   ymin=daily_temperature_2m_min, 
                   ymax=daily_temperature_2m_max),
-              fill="pink", alpha = 0.25) +
+              fill="#440154", alpha = 0.25) +
   geom_line(data = weatherHistDat2, 
-    aes(x=day, y=daily_temperature_2m_mean), linewidth=1, color="red") + 
+    aes(x=day, y=daily_temperature_2m_mean), linewidth=1, color="#440154") + 
   xlab("Survey Date") + 
   ylab("Temperature (C)") + 
   theme_bw()
@@ -164,16 +164,16 @@ ggplot() +
               aes(x=day, y=daily_apparent_temperature_mean, 
                   ymin=daily_apparent_temperature_min, 
                   ymax=daily_apparent_temperature_max),
-              fill="cyan", alpha = 0.25) +
+              fill="#7ad151", alpha = 0.25) +
   geom_line(data = weatherHistDat1, 
-            aes(x=day, y=daily_apparent_temperature_mean), linewidth=1, color="blue") + 
+            aes(x=day, y=daily_apparent_temperature_mean), linewidth=1, color="#7ad151") + 
   geom_ribbon(data = weatherHistDat2, 
               aes(x=day, y=daily_apparent_temperature_mean, 
                   ymin=daily_apparent_temperature_min, 
                   ymax=daily_apparent_temperature_max),
-              fill="pink", alpha = 0.25) +
+              fill="#440154", alpha = 0.25) +
   geom_line(data = weatherHistDat2, 
-            aes(x=day, y=daily_apparent_temperature_mean), linewidth=1, color="red") + 
+            aes(x=day, y=daily_apparent_temperature_mean), linewidth=1, color="#440154") + 
   xlab("Survey Date") + 
   ylab("Apparent Temperature (C)") + 
   theme_bw()
@@ -181,9 +181,9 @@ ggplot() +
 # snowfall?
 ggplot() + 
   geom_line(data = weatherHistDat1, 
-            aes(x=day, y=daily_snowfall_sum), linewidth=1, color="blue") + 
+            aes(x=day, y=daily_snowfall_sum), linewidth=1, color="#7ad151") + 
   geom_line(data = weatherHistDat2, 
-            aes(x=day, y=daily_snowfall_sum), linewidth=1, color="red") + 
+            aes(x=day, y=daily_snowfall_sum), linewidth=1, color="#440154") + 
   xlab("Survey Date") + 
   ylab("Daily Snowfall Sum (mm)") + 
   theme_bw()
