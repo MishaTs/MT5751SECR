@@ -35,7 +35,7 @@ plot <- ggplot(data, aes(x = Session, y = Estimate, fill = Design, colour = Desi
   facet_wrap(~Coefficient, 
              #labeller=as_labeller(lbs, label_parsed),
              scales = "free_y") +
-  theme_bw() +
+  theme_minimal() +
   labs(x = "Session", y = "Estimate") +
   scale_fill_viridis_d(begin = 0.2,
                         end = 0.8,
@@ -44,7 +44,9 @@ plot <- ggplot(data, aes(x = Session, y = Estimate, fill = Design, colour = Desi
   theme(
     axis.text = element_text(size = 12),  # Adjust axis text size
     axis.title = element_text(size = 14),  # Adjust axis label size
-    strip.text = element_text(size = 14)  # Adjust facet label size
+    strip.text = element_text(size = 14),  # Adjust facet label size
+    axis.line.x = element_line(colour = 'black', size=0.5, linetype='solid'),
+    axis.line.y = element_line(colour = 'black', size=0.5, linetype='solid')
   )
 
 # Save the plot with transparent background
@@ -159,7 +161,7 @@ ggplot() +
 
 
 # apparent temperature is better
-ggplot() + 
+tempPlot <- ggplot() + 
   geom_ribbon(data = weatherHistDat1, 
               aes(x=day, y=daily_apparent_temperature_mean, 
                   ymin=daily_apparent_temperature_min, 
@@ -174,9 +176,27 @@ ggplot() +
               fill="#440154", alpha = 0.25) +
   geom_line(data = weatherHistDat2, 
             aes(x=day, y=daily_apparent_temperature_mean), linewidth=1, color="#440154") + 
+  scale_colour_manual("", 
+                      values = c("#7ad151", "#440154")) +  
+  ggtitle("Temperatures in Diffuse (Green) and Compact (Purple) Surveys") +
   xlab("Survey Date") + 
   ylab("Apparent Temperature (C)") + 
-  theme_bw()
+  theme_minimal() + 
+  theme(axis.line = element_line(colour = "black"),
+        panel.border = element_rect(colour = "black", fill=NA),
+        plot.title = element_text(size = 16),
+        axis.text = element_text(size = 12),  # Adjust axis text size
+        axis.title = element_text(size = 14),  # Adjust axis label size
+        strip.text = element_text(size = 14))  # Adjust facet label size
+
+# Save the plot with transparent background
+ggsave("TempPlot.png", 
+       tempPlot, 
+       bg = "transparent", 
+       dpi = 300, 
+       width = 20, 
+       height = 10, 
+       units = "cm")
 
 # snowfall?
 ggplot() + 
